@@ -1,8 +1,9 @@
 #include <fmt/chrono.h>
 #include <fmt/format.h>
-
+#include <vector>
 #include "CLI/CLI.hpp"
 #include "config.h"
+#include <random>
 
 auto main(int argc, char **argv) -> int
 {
@@ -29,6 +30,15 @@ auto main(int argc, char **argv) -> int
     std::vector<int> data(count);
     fmt::print("Created a vector with {} elements \n", count);
 
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution <> distrib(1,100);
+
+    for(auto& i :data) {
+        i = distrib(gen);
+    }
+
+    fmt::print("The vector:\n[{}]\n", fmt::join(data, ", "));
     /**
      * The {fmt} lib is a cross platform library for printing and formatting text
      * it is much more convenient than std::cout and printf
