@@ -29,11 +29,19 @@ auto main(int argc, char **argv) -> int
      * it is much more convenient than std::cout and printf
      * More info at https://fmt.dev/latest/api.html
      */
-    fmt::print("Hello, {}!\n", app.get_name());
+    fmt::println("Hello, {}!\n", app.get_name());
+    fmt::println("The filename to use: {}!\n", filename);
 
     /* INSERT YOUR CODE HERE */
-
- 
+    BMP bmp;
+    bmp.read(filename);
+   
+   // struct Pixel{
+     //   uint8_t red; 
+       // uint8_t green; 
+       // uint8_t blue;
+       // uint8_t grey;
+    //}
 
     return 0; /* exit gracefully*/
 }
